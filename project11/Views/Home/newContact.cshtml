@@ -1,0 +1,136 @@
+﻿@*<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Address Book</title>
+
+    </head>
+    <body>
+        <div class="container">
+            <div class="sidebar">
+
+
+            </div>
+            <div class="main-content">
+                <h1>Save Your Details</h1>
+                <form id="newContactForm">
+                    <div class="form-group">
+                        <label for="newUserName">User Name:</label>
+                        <input type="text" id="newUserName" name="newUserName" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="newAddress1">Address 1:</label>
+                        <input type="text" id="newAddress1" name="newAddress1" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="newAddress2">Address 2:</label>
+                        <input type="text" id="newAddress2" name="newAddress2" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="newCountry">Country:</label>
+                        <input type="text" id="newCountry" name="newCountry" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="newJobTitle">Job Title:</label>
+                        <input type="text" id="newJobTitle" name="newJobTitle" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="newGender">Gender:</label>
+                        <select id="newGender" name="newGender" class="form-control">
+                            <option value="" disabled selected>Select your gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="button" id="saveNewContactButton" class="btn btn-primary">Save</button>
+                        <button type="button" id="generateQRButton" class="btn btn-success" style="display: none;">Generate QR Code</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </body>
+    </html>*@
+
+
+
+
+@*<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Username and QR Code</title>
+        <link rel="stylesheet" href="styles.css">
+        <link href="~/Content/newcontact.css" rel="stylesheet" />
+
+    </head>
+
+
+    <body>
+        <div class="container">
+            <div class="left">
+                <a href="#" id="username">Miral</a>
+            </div>
+            <div class="right">
+                <button id="generate-qr">Generate QR Code</button>
+                <div id="qrcode"></div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
+        <script src="~/Scripts/address.js"></script>
+        <script>
+            document.getElementById('generate-qr').addEventListener('click', function() {
+                    window.location.href = '@Url.Action("QRCode.cshtml", "Home")';
+                });
+        </script>
+    </body>
+    </html>*@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Clone</title>
+    @*<link rel="stylesheet" href="styles.css">*@
+    @*<link href="~/Content/Style.css" rel="stylesheet" />*@
+  
+
+     
+
+    
+
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shorts</a></li>
+                <li><a href="#">Subscriptions</a></li>
+                <li><a href="#">History</a></li>
+                <li><a href="#">Watch Later</a></li>
+                <li><a href="#">Liked Videos</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <button id="generate-qr">Generate QR Code</button>
+            <div id="qrcode"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
+
+    <script src="~/Scripts/script.js"></script>
+    <script src="~/Scripts/MYJS.js"></script>
+</body>
+</html>
+
+

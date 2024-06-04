@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MiralDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ADDRESS_BOOK">
+          <Key>
+            <PropertyRef Name="USER_ID" />
+          </Key>
+          <Property Name="USER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USERNAME" Type="varchar" MaxLength="200" />
+          <Property Name="ADDRESS1" Type="varchar" MaxLength="200" />
+          <Property Name="ADDRESS2" Type="varchar" MaxLength="200" />
+          <Property Name="COUNTRY" Type="varchar" MaxLength="100" />
+          <Property Name="GENDER" Type="varchar" MaxLength="100" />
+          <Property Name="MO.NO." Type="numeric" Precision="18" Scale="0" />
+          <Property Name="JOBTITLE" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="LOGIN">
+          <Key>
+            <PropertyRef Name="USERID" />
+          </Key>
+          <Property Name="USERID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USERNAME" Type="nvarchar" MaxLength="100" />
+          <Property Name="EMAIL" Type="nvarchar" MaxLength="100" />
+          <Property Name="PASSWORD" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SIGNUP">
+          <Key>
+            <PropertyRef Name="USER_ID" />
+          </Key>
+          <Property Name="USER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USER_NAME" Type="varchar" MaxLength="100" />
+          <Property Name="PASSWORD" Type="varchar" MaxLength="100" />
+          <Property Name="TPASSWORD" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="VCARDTABLE">
+          <Key>
+            <PropertyRef Name="USER_ID" />
+          </Key>
+          <Property Name="USER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USERNAME" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="PASSWORD" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="DATE_MODIFIED" Type="datetime" Nullable="false" />
+          <Property Name="USER_MODIFIED" Type="int" Nullable="false" />
+          <Property Name="ACTIVE_FLAG" Type="bit" Nullable="false" />
+          <Property Name="DELETED_FLAG" Type="bit" Nullable="false" />
+        </EntityType>
+        <Function Name="SP_ADDRESS_BOOK" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="MiralDBModelStoreContainer">
+          <EntitySet Name="ADDRESS_BOOK" EntityType="Self.ADDRESS_BOOK" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOGIN" EntityType="Self.LOGIN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SIGNUP" EntityType="Self.SIGNUP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VCARDTABLE" EntityType="Self.VCARDTABLE" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MiralDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="SIGNUP">
+          <Key>
+            <PropertyRef Name="USER_ID" />
+          </Key>
+          <Property Name="USER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USER_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TPASSWORD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="VCARDTABLE">
+          <Key>
+            <PropertyRef Name="USER_ID" />
+          </Key>
+          <Property Name="USER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USERNAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DATE_MODIFIED" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="USER_MODIFIED" Type="Int32" Nullable="false" />
+          <Property Name="ACTIVE_FLAG" Type="Boolean" Nullable="false" />
+          <Property Name="DELETED_FLAG" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="MiralDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="SIGNUPs" EntityType="Self.SIGNUP" />
+          <EntitySet Name="VCARDTABLEs" EntityType="Self.VCARDTABLE" />
+          <EntitySet Name="ADDRESS_BOOK" EntityType="MiralDBModel.ADDRESS_BOOK" />
+          <EntitySet Name="LOGINs" EntityType="MiralDBModel.LOGIN" />
+          <FunctionImport Name="SP_ADDRESS_BOOK" ReturnType="Collection(String)" />
+        </EntityContainer>
+        <EntityType Name="ADDRESS_BOOK">
+          <Key>
+            <PropertyRef Name="USER_ID" />
+          </Key>
+          <Property Name="USER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USERNAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="COUNTRY" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="GENDER" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MO_NO_" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="JOBTITLE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="LOGIN">
+          <Key>
+            <PropertyRef Name="USERID" />
+          </Key>
+          <Property Name="USERID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USERNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MiralDBModelStoreContainer" CdmEntityContainer="MiralDBEntities">
+          <EntitySetMapping Name="SIGNUPs">
+            <EntityTypeMapping TypeName="MiralDBModel.SIGNUP">
+              <MappingFragment StoreEntitySet="SIGNUP">
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="TPASSWORD" ColumnName="TPASSWORD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VCARDTABLEs">
+            <EntityTypeMapping TypeName="MiralDBModel.VCARDTABLE">
+              <MappingFragment StoreEntitySet="VCARDTABLE">
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="DATE_MODIFIED" ColumnName="DATE_MODIFIED" />
+                <ScalarProperty Name="USER_MODIFIED" ColumnName="USER_MODIFIED" />
+                <ScalarProperty Name="ACTIVE_FLAG" ColumnName="ACTIVE_FLAG" />
+                <ScalarProperty Name="DELETED_FLAG" ColumnName="DELETED_FLAG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ADDRESS_BOOK">
+            <EntityTypeMapping TypeName="MiralDBModel.ADDRESS_BOOK">
+              <MappingFragment StoreEntitySet="ADDRESS_BOOK">
+                <ScalarProperty Name="JOBTITLE" ColumnName="JOBTITLE" />
+                <ScalarProperty Name="MO_NO_" ColumnName="MO.NO." />
+                <ScalarProperty Name="GENDER" ColumnName="GENDER" />
+                <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+                <ScalarProperty Name="ADDRESS2" ColumnName="ADDRESS2" />
+                <ScalarProperty Name="ADDRESS1" ColumnName="ADDRESS1" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOGINs">
+            <EntityTypeMapping TypeName="MiralDBModel.LOGIN">
+              <MappingFragment StoreEntitySet="LOGIN">
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_ADDRESS_BOOK" FunctionName="MiralDBModel.Store.SP_ADDRESS_BOOK" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

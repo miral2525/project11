@@ -1,0 +1,187 @@
+﻿@{
+    ViewBag.Title = "Signup";
+}
+
+<!--<h2>Signup</h2>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f2f5;
+        }
+
+        .signup-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+            .signup-container h2 {
+                margin-bottom: 20px;
+            }
+
+            .signup-container input {
+                width: 100%;
+                padding: 10px;
+                margin: 10px 0;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            .signup-container button {
+                width: 100%;
+                padding: 10px;
+                margin: 10px 0;
+                background-color: #42b72a;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+                .signup-container button:hover {
+                    background-color: #36a420;
+                }
+    </style>-->
+@*<script src="~/Scripts/MYJS.js"></script>*@
+@*<script>
+        $(document).ready(function () {
+            $('#signupButton').click(function () {
+                var username = $('#susername').val();
+                var password = $('#spassword').val();
+                var confirmPassword = $('#scpassword').val();
+
+
+
+                $.ajax({
+                    url: '/Home/Signup',
+                    type: 'POST',
+                    data: {
+                        username: username,
+                        password: password,
+                        confirmPassword: confirmPassword
+                    },
+                    success: function (response) {
+                        if (response.success) {
+                            window.location.href = response.redirectUrl;
+                        } else {
+                            $('#message').text(response.message);
+                        }
+                    },
+                    error: function () {
+                        $('#message').text('An error occurred. Please try again.');
+                    }
+                });
+            });
+
+
+
+    </script>*@
+
+<!--<!--</head>
+<body>
+    <div class="signup-container">-->-->
+<!--@*<h2>Signup</h2>*@
+@*@using (Html.BeginForm("Signup", "Account", FormMethod.Post))*@-->
+
+<!--<input type="text" name="username" placeholder="Username" id="susername" required />
+            <input type="password" name="password" placeholder="Password" id="spassword"  required />
+            <input type="password" name="confirmPassword" placeholder="Confirm Password" id="scpassword"  required />
+            <button type="submit" id="signupButton">Sign Up</button>
+
+    </div>
+</body>
+</html>-->
+<!--@{
+    ViewBag.Title = "Ragistr";
+}-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <title>Create</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row" style="padding:10px">
+            <div class="col-sm-4"></div>
+            <form action="" id="RagiForm">
+                <div class="content col-sm-4 table-bordered">
+                    <div class="modal-header">
+                        <h2 class="text-center"> Signup form </h2>
+                    </div>
+                    <span id="errorContainer" style="color: red;">
+                    </span>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="form-label" for="_name">Name</label>
+                            <input type="text" id="RNAME" name="name" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="_email">Email</label>
+                            <input type="email" id="REMAIL" name="email" class="form-control" />
+                            <span id="errorEmail" style="color: red;"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="_password">Password</label>
+                            <input type="password" id="RPASSWORD" name="password" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="_rpassword">Repeat your password</label>
+                            <input type="password" id="Rrpassword" name="rpassword" class="form-control" />
+                            <span id="confirmPasswordError" class="error"></span>
+
+                        </div>
+                        <div class="form-check d-flex justify-content-center ">
+                            <input class="form-check-input me-2" type="checkbox" id="checkbox" />
+                            <label class="form-check-label" for="checkbox">
+                                I agree all statements in <a href="" class="text-body"><u>Terms of service</u></a>
+                            </label>
+                        </div>
+                        <p class="text-center text-muted m-3">
+                            <b>Have already an account? </b><a href="@Url.Action("Login","Home")" class="fw-bold text-body"><u>Login here</u></a>
+                        </p>
+                        <hr />
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn btn-primary" id="RSub">Submit</button>
+                        </div>
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+     <script src="~/Scripts/MYJS.js"></script>
+</body>
+</html>

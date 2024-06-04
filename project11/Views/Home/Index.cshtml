@@ -1,0 +1,135 @@
+﻿@{
+        ViewBag.Title = "Index";
+    }
+
+
+
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Address Book</title>
+
+
+
+    </head>
+    <body>
+        <div class="container">
+            <h1>save your details </h1>
+            <form id="newContactForm">
+                <div class="form-group">
+                    <label for="newUserName">User Name:</label>
+                    <input type="text" id="newUserName" name="newUserName" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="newAddress1">Address 1:</label>
+                    <input type="text" id="newAddress1" name="newAddress1" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="newAddress2">Address 2:</label>
+                    <input type="text" id="newAddress2" name="newAddress2" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="newCountry">Country:</label>
+                    <input type="text" id="newCountry" name="newCountry" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="newMobileNo">Mobile No:</label>
+                    <input type="tel" id="newMobileNo" name="newMobileNo" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="newJobTitle">Job Title:</label>
+                    <input type="text" id="newJobTitle" name="newJobTitle" class="form-control">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="newGender">Gender:</label>
+                    <select id="newGender" name="newGender" class="form-control">
+                        <option value="" disabled selected>Select your gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-buttons">
+                    <button type="button" id="saveNewContactButton" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+
+        <script>
+            document.getElementById('saveNewContactButton').addEventListener('click', function() {
+                window.location.href = '@Url.Action("NewContact", "Home")';
+            });
+        </script>
+
+        <script src="~/Scripts/MYJS.js"></script>
+
+    </body>
+    </html>
+
+
+<!--@{
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Address Book</title>
+    <link rel="stylesheet" href="~/Content/Site.css">--> <!-- Assuming you have a CSS file -->
+<!--</head>
+<body>
+    <div class="container">
+        <h1>Save your details</h1>
+        <form id="newContactForm">
+            <div class="form-group">
+                <label for="newUserName">User Name:</label>
+                <input type="text" id="newUserName" name="newUserName" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="newAddress1">Address 1:</label>
+                <input type="text" id="newAddress1" name="newAddress1" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="newAddress2">Address 2:</label>
+                <input type="text" id="newAddress2" name="newAddress2" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="newCountry">Country:</label>
+                <input type="text" id="newCountry" name="newCountry" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="newMobileNo">Mobile No:</label>
+                <input type="tel" id="newMobileNo" name="newMobileNo" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="newJobTitle">Job Title:</label>
+                <input type="text" id="newJobTitle" name="newJobTitle" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="newGender">Gender:</label>
+                <select id="newGender" name="newGender" class="form-control">
+                    <option value="" disabled selected>Select your gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-buttons">
+                <button type="button" id="saveNewContactButton" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/Scripts/api.js"></script>
+</body>
+</html>-->
+
+
